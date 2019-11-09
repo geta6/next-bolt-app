@@ -1,4 +1,4 @@
-import { TaskProps } from '../setup';
+import { Props } from '../setup';
 
 /**
  * Event Subscriptions
@@ -8,7 +8,7 @@ import { TaskProps } from '../setup';
  * - See more: `https://slack.dev/bolt/ja-jp/tutorial/getting-started`
  */
 
-export default ({ app }: TaskProps) => {
+export default ({ app }: Props) => {
   app.message('hello', ({ message, say }) => {
     say(`Hey there <@${message.user}>!`);
   });

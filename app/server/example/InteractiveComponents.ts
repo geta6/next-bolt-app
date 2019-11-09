@@ -1,4 +1,4 @@
-import { TaskProps } from '../setup';
+import { Props } from '../setup';
 
 /**
  * Interactive Components
@@ -7,7 +7,7 @@ import { TaskProps } from '../setup';
  * - See more: `https://slack.dev/bolt/concepts`
  */
 
-export default ({ app }: TaskProps) => {
+export default ({ app }: Props) => {
   // Message listener
   app.message('button', ({ message, say }) => {
     say({
