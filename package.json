@@ -35,17 +35,14 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{png,jpg,jpeg,gif}": [
-      "imagemin-lint-staged",
-      "git add"
+      "imagemin-lint-staged"
     ],
     "*.json": [
       "jsonlint",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "dependencies": {
