@@ -6,9 +6,6 @@ const webpack = require('webpack');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const { parsed: def } = dotenv.config({ path: path.join(__dirname, 'config', 'env', 'default.env') });
-const { parsed: env } = dotenv.config({ path: path.join(__dirname, 'config', 'env', `${process.env.NODE_ENV}.env`) });
-
 const nextConfig = {
   // https://nextjs.org/docs#changing-x-powered-by
   poweredByHeader: false,
@@ -28,7 +25,7 @@ const nextConfig = {
     config.plugins = config.plugins || [];
 
     // https://github.com/zeit/next.js/#exposing-configuration-to-the-server--client-side
-    config.plugins = [...config.plugins, new webpack.EnvironmentPlugin({ ...(def || {}), ...(env || {}) })];
+    config.plugins = [...config.plugins, new webpack.EnvironmentPlugin(dotenv.config().parsed)];
 
     return config;
   },
