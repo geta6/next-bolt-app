@@ -9,7 +9,7 @@ import { Props } from '../setup';
  */
 
 export default ({ app }: Props) => {
-  app.message('hello', ({ message, say }) => {
-    say(`Hey there <@${message.user}>!`);
+  app.message('hello', async ({ message, say }) => {
+    await say(`Hey there <@${message.user}>!`);
   });
 };

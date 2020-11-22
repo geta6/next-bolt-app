@@ -9,8 +9,8 @@ import { Props } from '../setup';
 
 export default ({ app }: Props) => {
   // Message listener
-  app.message('button', ({ message, say }) => {
-    say({
+  app.message('button', async ({ message, say }) => {
+    await say({
       channel: 'a',
       text: 'a',
       blocks: [
@@ -35,8 +35,8 @@ export default ({ app }: Props) => {
   });
 
   // Interaction responder
-  app.action('button_click', ({ body, ack, say }) => {
+  app.action('button_click', async ({ body, ack, say }) => {
     ack(); // Acknowledge the action
-    say(`<@${body.user.id}> clicked the button`);
+    await say(`<@${body.user.id}> clicked the button`);
   });
 };

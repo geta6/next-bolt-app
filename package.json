@@ -6,27 +6,11 @@
   "scripts": {
     "build": "scripty",
     "start": "scripty",
-    "ngrok": "scripty",
     "dev": "scripty"
   },
   "scripty": {
     "silent": true
   },
-  "apps": [
-    {
-      "name": "bot",
-      "script": "ts-node",
-      "args": "app/server",
-      "watch": [
-        "app/server"
-      ],
-      "pid_file": "tmp/bot.pid",
-      "out_file": "tmp/logs/bot.stdout.log",
-      "error_file": "tmp/logs/bot.stderr.log",
-      "instances": 1,
-      "exec_mode": "fork"
-    }
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -45,38 +29,60 @@
       "prettier --write"
     ]
   },
+  "apps": [
+    {
+      "name": "bot",
+      "script": "ts-node",
+      "args": "app/server",
+      "watch": [
+        "app/server"
+      ],
+      "pid_file": "tmp/bot.pid",
+      "out_file": "tmp/logs/bot.stdout.log",
+      "error_file": "tmp/logs/bot.stderr.log",
+      "instances": 1,
+      "exec_mode": "fork"
+    },
+    {
+      "name": "ngrok",
+      "script": "ts-node",
+      "args": "app/dev/ngrok.ts",
+      "pid_file": "tmp/ngrok.pid",
+      "out_file": "tmp/logs/ngrok.stdout.log",
+      "error_file": "tmp/logs/ngrok.stderr.log",
+      "instances": 1,
+      "exec_mode": "fork"
+    }
+  ],
   "dependencies": {
-    "@slack/bolt": "^1.6.0",
-    "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.3",
-    "@types/helmet": "^0.0.45",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "@types/webpack": "^4.41.7",
-    "dotenv": "^8.2.0",
+    "@slack/bolt": "^2.4.1",
     "express": "^4.17.1",
-    "helmet": "^3.21.3",
-    "next": "^9.2.2",
-    "pm2": "^4.2.3",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "scripty": "^1.9.1",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.8.3",
-    "webpack": "^4.42.0"
+    "helmet": "^4.2.0",
+    "next": "^10.0.2",
+    "ngrok": "^3.3.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "scripty": "^2.0.0",
+    "typescript": "^4.1.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.22.0",
-    "@typescript-eslint/parser": "^2.22.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
-    "husky": "^4.2.3",
+    "@types/express": "^4.17.9",
+    "@types/helmet": "^4.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
     "imagemin-lint-staged": "^0.4.0",
     "jsonlint": "^1.6.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "^1.19.1"
+    "lint-staged": "^10.5.1",
+    "pm2": "^4.5.0",
+    "prettier": "^2.2.0",
+    "ts-node": "^9.0.0"
   }
 }
