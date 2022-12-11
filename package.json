@@ -56,7 +56,7 @@
   ],
   "dependencies": {
     "@slack/bolt": "^2.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "helmet": "^4.2.0",
     "next": "^10.0.2",
     "ngrok": "^3.3.0",
